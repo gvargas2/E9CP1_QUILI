@@ -26,8 +26,16 @@ $(function(){
   var data = prompt('Por favor agrega un nombre a la lista', 'Harry Potter');
   // Al hacer click en el boton .add_name, se agrega el valor guardado en el prompt
   $('.add_name').click(function(){
-    $('.names').append(data);
-  })
-
+    //Se agrega un li con toda la info
+    $('.names').append('<li><span>'+data+'</span><a class="remove_name" href="#"> Eliminar</a></li>');
+  });
+  // Eliminar # en url. COMO DELEGO??
+  $('a[href="#"]').click(function (evento){
+    evento.preventDesafult();
+  });
+  // que boton remove_name elimine el li
+  $('.remove_name').click(function(){
+    $('li').remove();
+  });
 
 })
